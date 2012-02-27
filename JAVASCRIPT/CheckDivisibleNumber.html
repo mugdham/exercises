@@ -1,0 +1,37 @@
+<html>
+<script type="text/javascript">
+ function checkDivUsingWhile()
+ { 
+    i = 1;
+    do
+    {
+        if (i %2==0 && i%3==0)
+        {
+            console.log("The number is " + i);            
+        }
+        i++;
+    }
+    while (i <= 100);
+    }
+
+function checkDivUsingFor()
+ {     
+    for(var i=1;i<=100;i++)
+    {
+		if (i %2==0 && i%3==0)
+        {
+            console.log("The number is " + i);            
+        }
+        
+    }
+    
+ }        
+</script>    
+<body>
+<button onclick="checkDivUsingWhile()">Click button to get number from 1 to 100 that is divisible by both 2 and 3 using while loop</button>
+</br>
+<button onclick="checkDivUsingFor()">Click button to get number from 1 to 100 that is divisible by both 2 and 3 using for loop</button>
+    
+    
+</body>
+</html>

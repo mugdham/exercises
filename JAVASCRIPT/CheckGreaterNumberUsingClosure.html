@@ -1,0 +1,42 @@
+<html>
+<head>
+<script type="text/javascript">
+
+	function greaterThan(x) 
+	{
+		return function (y)
+		{
+			if (x > y)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		};   
+	}    
+    
+	function checkValue(n)
+	{   
+		var num1= document.getElementById(n).value;
+		var num2=document.getElementById("text2").value	
+		var test = greaterThan(num1);			
+		var result= test(num2);
+		if(result)
+		{
+			console.log("first number is greater");
+		}
+		else
+		{
+			console.log("first number is smaller");
+		}
+    }    
+</script>
+</head>
+<body>
+	Enter first number:<input type="text" id="text1"></br>
+	Enter second number:<input type="text" id="text2"></br>    
+	<input type="button" value="submit" onClick="checkValue('text1');"></br>
+</body>
+</html>
