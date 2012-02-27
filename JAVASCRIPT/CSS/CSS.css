@@ -1,0 +1,78 @@
+ol
+{
+list-style-type: none;
+}
+li
+{
+font-family: Tahoma, Arial, Helvetica, Sans-serif;
+font-size: 14px;
+color: #6699ff;
+width: 35em; 
+padding-top:5px;
+}
+
+
+li:hover, 
+li.focus  { 
+  background-color: lightyellow; 
+  border: 1px gray solid; 
+  width: 35em; 
+} 
+.wrapper
+{
+background:#CCCCFF;
+width:960px;
+margin:auto;
+}
+h1
+{
+text-align :center;
+}
+
+h2
+{
+text-align :center;
+}
+label
+{
+margin-left : 200px;
+font-family: Tahoma, Arial, Helvetica, Sans-serif;
+font-size: 12px;
+color: #ff5050;
+line-height: 10px;
+text-align:right;
+}
+.divListContainer
+{
+float:left;
+width:62%;
+height:50px;
+margin : 5px;
+padding :10px;
+border: 1px solid gray;
+border-radius: 11px;
+font-family: Tahoma, Arial, Helvetica, Sans-serif;
+font-size: 14px;
+color: #990033;
+line-height: 10px;
+}
+.divListItem
+{
+float:left;
+width:62%;
+margin : 5px;
+padding:10px;
+top :210px;
+border: 1px solid gray;
+border-radius: 11px;
+}
+.divSeacrh
+{
+float:Right;
+width:30%;
+height:100px;
+margin : 5px;
+padding : 15px;
+border: 1px solid gray;
+border-radius: 11px;
+}

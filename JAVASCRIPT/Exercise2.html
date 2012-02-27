@@ -1,0 +1,119 @@
+  <html> 
+ <head>   
+   <script type="text/javascript">
+	   function addtxt()
+	   {	   
+		var desc=document.getElementById('text1').value;
+		if(document.getElementById('text1').value.length==0)
+		{ 
+			alert("Please enter some text.");
+		}
+		else if(document.getElementById('text1').value.length >200)
+		{
+			alert("You can enter only 200 characters.Please try again");
+		}
+		else
+		{
+			var list = document.getElementById('list');
+			
+			
+			document.getElementById('text1').value = '';
+			
+			//Create a new <li> dynamically
+			var newLi = document.createElement('li');
+			
+			//Create checkbox dynamically       
+			var checkBox = cb = document.createElement("input");
+			cb.type = "checkbox";
+			cb.id = "c1";
+			cb.value = name;
+			cb.checked = false;		
+
+			//Append the checkbox to the li
+			newLi.appendChild(cb);	
+
+			//Create the text node after the the checkbox
+			var text = document.createTextNode(desc);
+			
+			//Append the text node to the <li>
+			newLi.appendChild(text);
+
+			//Append the <li> to the <ul>
+			list.appendChild(newLi);
+			var listCount= list.getElementsByTagName('li').length;					
+			document.getElementById("countLabel").innerHTML = "List contains " + listCount + " items. Last updated on : " + GetFormatedDate();		
+			
+						
+		}
+	}
+	
+	function GetFormatedDate()
+	{
+			var currentTime = new Date();
+			var date = new Date();
+			var day = date.getDate();
+			var month = date.getMonth() + 1;
+			var hours = currentTime.getHours();
+			var seconds = currentTime.getSeconds();
+			var yy = date.getYear();
+			var year = (yy < 1000) ? yy + 1900 : yy;
+			var minutes = currentTime.getMinutes();
+			var time;
+			if(day<10)
+			{
+				day = "0" + day;
+			}
+			if(month<10)
+			{
+				month = "0" + month;
+			}
+			if (minutes < 10)
+			{
+				minutes = "0" + minutes;
+			}
+			time= hours + ":" + minutes + ":" + seconds +" "  ;
+			if(hours > 11)
+			{
+				time=time+"PM";
+			} 
+			else 
+			{
+				time=time+"AM";
+			}
+			var result = day + "-" + month + "-" + year + " " + time;
+			return result;
+	}
+		
+		function CheckSearchResult()
+		{
+			var searchTxt =document.getElementById('search').value;
+			document.getElementById('search').value = '';
+			window.open("http://google.com/search?q=" + searchTxt);	
+   		
+		}
+   </script>
+  <link rel="stylesheet" href="CSS/CSS.css">
+ </head>
+ <body> 
+ <div class="wrapper">	
+		 <h1>Todos</h1>
+		 <h2>What needs to get done today?</h2>
+	 
+	 <div class="divListContainer">
+		 <input type="text" id="text1">
+		 <input type="button" value="Add Todo" onClick="addtxt();">   		 
+		
+	</div>
+	<div class="divSeacrh"> 		
+		 <input type="text" id="search">
+		 <input type="button" value="Google Search" onClick="CheckSearchResult();">
+	 </div> 
+	<div class="divListItem">	
+			<label id="countLabel"></label>	 		
+			  <ol id="list">
+			  <li>This is my first item to do!!</li>		 
+			 </ol>	
+	</div>	 	 
+</div>
+ </body>
+ </html>
