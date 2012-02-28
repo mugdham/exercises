@@ -1,0 +1,176 @@
+<html>
+  <head>
+  <title>Document</title>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+  
+  <script type="text/javascript">  	
+		
+     $("document").ready(function() {
+	  
+          // Example
+          // Use basic selectors, basic filters, attribute selectors, content filters, hierarchy filters
+          $('#button1').toggle(function() {
+              $("p").css("border", "3px solid red");
+          }, function() {
+              $("p").css("border", "");
+          });
+		  
+		  //using class selector (".class")		 
+		  $(".a").css("border","3px solid green");
+		  
+		  //using id selector ("#id")
+		   $('#button2').toggle(function() {
+               $("#myDiv").css("background-color","#CCCCFF");
+          }, function() {
+               $("#myDiv").css("background-color","");
+          });	 
+		  
+		  //using all selector ("*")
+		   $('#button14').toggle(function() {
+                var elementCount = $("*").css("border","1px dotted red").length;
+				$("body").prepend("<h3>" + elementCount + " elements found</h3>");
+          }, function() {
+                var elementCount = $("*").css("border","").length;
+          });	
+		
+		//using multitple selector (“selector1, selector2, selectorN”)
+		   $('#button3').toggle(function() {
+               $("ul,li").css("font-family","verdana");
+          }, function() {
+               $("ul,li").css("font-family","");
+          });
+		  
+		//using first selector 
+		 $('#button4').toggle(function() {
+				$("li:first").css("font-style", "italic");              
+          }, function() {
+               $("li:first").css("font-style","");
+          });
+		  
+		  //using last selector 
+		 $('#button5').toggle(function() {
+				$("li:last").css("font-Weight", "bold");              
+          }, function() {
+               $("li:last").css("font-Weight","");
+          });
+		  
+		   //using even selector 
+		 $('#button6').toggle(function() {
+				$("tr:even").css("background-color", "#bbbbff");              
+          }, function() {
+               $("tr:even").css("background-color" , "");
+          });		  
+		
+		  //using odd selector 
+		 $('#button7').toggle(function() {
+				$("tr:odd").css("background-color", "#f7be81");              
+          }, function() {
+               $("tr:odd").css("background-color" , "");
+          });	
+		  
+		   //using contains selector 
+		 $('#button8').toggle(function() {
+				$("p:contains('This')").css("text-decoration", "underline");              
+          }, function() {
+               $("p:contains('This')").css("text-decoration" , "");
+          });
+		  
+		//using empty selector 
+		 $('#button9').toggle(function() {
+				$("div:empty").text("Div Was empty!").css("background-color","#2efee7");           
+          }, function() {
+               $("div:empty").text("").css("background-color","#ffffff");       
+          });			  
+		  
+		  //using having selector 
+		 $('#button10').toggle(function() {
+		 	 $("span:has(b)").addClass("test");         
+          }, function() {
+                $("span").removeClass("test");       
+          });	
+		  
+		   //using hidden selector 
+		 $('#button11').toggle(function() {
+		 	  var hiddenEls = $("body").find(":hidden").not("script");			
+			 $("span:last").text("Found " + $("input:hidden").length + " hidden inputs.");  
+          }, function() {
+               $("span:last").text("");  
+          });
+		  
+		  //using attribute selector 
+		 $('#button12').click(function() {
+				     
+			  $('input[name*="man"]').val('has man in it!');
+			  $('input[name$="editor"]').val('editor');	
+			  $('input[name~="man"]').val('spider here!');			  
+			});
+		 
+		  //using child selector 
+		 $('#button13').click(function() {				     
+			 $("ul.topnav > li").css("border", "3px double red");		  
+			});
+		 
+		 
+      });
+  </script> 
+  <style type="text/css">
+  .a { color: Navy; }
+  .b { color: Maroon; }
+  .test{ border: 3px inset red; }
+  </style>
+  </head>
+  <body>
+  <div id="myDiv">
+      <ul id="list1">
+          <li class="a">item 1</li>
+          <li class="a">item 2</li>
+          <li class="b">item 3</li>
+          <li class="b">item 4</li>		  
+      </ul>
+      <p class="a">This is paragraph 1</p>
+      <p>This is paragraph 2</p>
+      <p class="b">This is paragraph 3</p>
+      <p>This is paragraph 4</p>
+	   <input name="man-news" />
+       <input name="milkman" />
+       <input name="newseditor" />
+	   <input name="spider man" />
+	  <div></div>
+	  <input type="hidden" />
+	  <input type="hidden" />
+	 <span><b>Hello world </b></span></br>
+	 <span></span>
+	 <ul class="topnav">
+		<li>Element 1</li>
+		<li>Element 2 
+			<ul>
+				<li>Nested Element 1</li><li>Nested Element 2</li>
+			</ul>
+		</li>
+		<li>Element 3</li>
+	</ul>
+	  <table border="1">
+		<tr><td>Row with Index #0</td></tr>
+		<tr><td>Row with Index #1</td></tr>
+		<tr><td>Row with Index #2</td></tr>
+		<tr><td>Row with Index #3</td></tr>
+  </table>
+      <!-- Add multiple buttons for each selector -->
+       <input type="button" id="button1" value="Select All Ps" />
+	   <input type="button" id="button2" value="ID Selector" />
+	   <input type="button" id="button3" value="Change font style for li" />
+	   <input type="button" id="button14" value="All Selector" />
+	   <input type="button" id="button4" value="First Selector" />
+	   <input type="button" id="button5" value="Last Selector" />
+	   <input type="button" id="button6" value="Even Selector" />
+	   <input type="button" id="button7" value="Odd Selector" />
+	   <input type="button" id="button8" value="Contain Selector" />
+	   <input type="button" id="button9" value="Empty Selector" />
+	   <input type="button" id="button10" value="Having Selector" />
+	   <input type="button" id="button11" value="Hidden Selector" />
+	   <input type="button" id="button12" value="Attribute Selector" />
+	   <input type="button" id="button13" value="Child Selector" />
+	  
+	  </div>
+  </body>
+  </html>
