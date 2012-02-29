@@ -1,0 +1,137 @@
+<head>
+      <title>jQuery Showing and Hiding an Element</title>
+      <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+      <script type="text/javascript">
+          $(function() {
+              // Show, hide and toggle theDiv element
+              // Animate and grow the width, font size, and position of theDiv element
+              // Fade In, Out
+              // Slide In, out, Toggle
+			  
+					//show
+					$('#show').click(function() {
+						$("#newDiv").show();							  
+					});
+			  
+					//hide
+					$('#hide').click(function() {
+						$("#theDiv").hide();							  
+					});
+					
+					//toggle show & hide
+					$('#toggle').toggle(function() {
+						$("#theDiv").hide();
+						}, function() {
+						$("#theDiv").show();
+					});
+					
+					//right
+					$('#right').click(function() {
+						 $("#theDiv").animate({'width': "+=50px"});   			 
+					});
+					
+					//big text
+					$('#text').click(function() {
+					 $("#theDiv").animate({'font-size': "+=4pt"});						 					 
+					});	
+					
+					//move div
+					$('#move').click(function() {
+						 $("#theDiv").animate({'marginLeft': "+=250px"});   			 
+					});
+					
+					//fadein
+					$('#fadein').click(function() {
+						$("span").fadeIn(2000);
+					});		
+					
+					//fadeout
+					$('#fadeout').click(function() {
+						$("p").fadeOut("slow");
+					});
+
+					//fadeto3
+					$('#fadeto3').click(function() {
+						$("#theDiv").fadeTo("slow", 0.3);
+					});						
+
+					//fadeup
+					$('#fadeup').click(function() {
+						$("span").fadeTo("fast", 1.0);
+					});											
+					  
+					//slideup
+					$('#slideup').click(function() {
+						 $("div").slideUp();
+					});	
+					
+					//slidedown
+					$('#slidedown').click(function() {
+						 $("#newDiv").slideDown(2000);						 
+					});								
+					
+					//toggle Slide
+					$('#toggleSlide').toggle(function() {
+						$("#theDiv").slideUp();
+						}, function() {
+						$("#theDiv").slideDown(2000);	
+					});				
+					
+					 
+          });
+      </script>
+      <style type="text/css">
+          div#theDiv {
+              width: 250px;
+              height: 180px;
+              margin: 10px;
+              padding: 20px;
+              background: blue;
+              border: 2px solid black;
+              cursor: pointer;
+          }
+          p{
+              font-size: 16pt;
+          }
+          button {
+              margin: 5px;
+          }
+		  span { 
+				 font-size: 16pt;
+				 display:none; 
+			  }
+			  
+			div#newDiv  {
+				background:#de9a44; 
+				margin: 10px;
+				padding: 20px;
+				width:80px; 
+				height:40px; 
+				display:none;  
+			  }
+		
+      </style>
+  </head>
+  <body>
+      <p>Showing and Hiding an Element</p>
+      <div id="theDiv">
+          Showing and Hiding an Element
+      </div>
+	  <span>This is span </span>
+	  <div id="newDiv">this is new div</div>
+	  </br>
+      <button id="show">Show</button>
+      <button id="hide">Hide</button>
+      <button id="toggle">Toggle</button>
+      <button id="right">Grow Right</button>
+      <button id="text">Big Text</button>
+      <button id="move">Move Div</button>
+      <button id="fadein">Fade In</button>
+      <button id="fadeout">Fade Out</button>
+      <button id="fadeto3">Fade To .3</button>
+      <button id="fadeup">Fade To 1.0</button>
+      <button id="slideup">Slide Up</button>
+      <button id="slidedown">Slide Down</button>
+      <button id="toggleSlide">Toggle Slide</button>
+  </body>
+  </html>

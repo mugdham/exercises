@@ -1,0 +1,100 @@
+ <head>
+      <title>Document</title>
+      <!-- Include JQuery Library -->
+	  <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+      <script type="text/javascript">
+          $("document").ready(function() {
+              // Change html,
+              // Add handling for creating elements, append, prepend and warp around elements
+			  
+			  //add and remove class
+			   $('#changeStyle').toggle(function() {
+					$("p").addClass("test");         
+					}, function() {
+					$("p").removeClass("test");       
+				});		
+				
+				//append
+				$('#append').click(function() {
+				   var userData = $("input#FirstName").val();				  
+					$("p").append(userData);					
+					});	
+					
+					//prepend
+					$('#prepend').click(function() {
+				   var userData = $("input#FirstName").val();				  
+					$("div").prepend(userData);					
+					});	
+					
+					//after
+					$('#afterDiv').click(function() {
+					   var userData = $("input#FirstName").val();
+					   console.log(userData);
+						$("div").after(userData);				
+					});	
+					
+					//before
+					$('#beforeDiv').click(function() {
+					   var userData = $("input#FirstName").val();					   
+						$("div").before(userData);				
+					});	
+					
+					//wrap
+					$('#wrapDiv').click(function() {
+					  $("ul").wrap("<div></div>")					
+					});	
+					
+					//clone
+					$('#clone').click(function() {
+					 	$("div").clone().prependTo("p");					  
+					});	
+					
+					//clone
+					$('#getUl').click(function() {
+					var from =$("div").text();
+					$("#FirstName").val(from);				  
+					});
+				
+					$('#pageReload').click(function() {					
+					window.location.reload(true);			  
+					});
+          });
+      </script>
+      <style type="text/css">
+        .a { color: Navy; }
+        .b { color: Maroon; }
+		.test
+		{ 
+			border:1px inset red;
+			background-color:#f7be81;
+			font-family:verdana;
+			font-style:italic;
+		}
+		div { border: 1px solid blue; }
+      </style>
+  </head>
+  <body>
+      <ul id="list1">
+          <li class="a">item 1</li>
+          <li class="a">item 2</li>
+          <li class="b">item 3</li>
+          <li class="b">item 4</li>
+      </ul>
+      <p class="a">This is paragraph 1</p>
+      <p>This is paragraph 2</p>
+      <p class="b">This is paragraph 3</p>
+      <p id="para4">This is paragraph 4</p>
+	  <div>This is div</div></br>
+	  <input id="FirstName" type="text"/>
+	  </br>
+	  <input type="button" id="changeStyle" value="Change style for paragrapgh" />
+	  <input type="button" id="append" value="Append Text after paragraph" />
+	  <input type="button" id="prepend" value="Prepend Text before div" />
+	  <input type="button" id="afterDiv" value="Add Text after div" />
+	  <input type="button" id="beforeDiv" value="Add Text before div" />
+	  <input type="button" id="wrapDiv" value="WrapAdd Text before div" />
+	  <input type="button" id="clone" value="Clone div content before paragraph" />
+	  <input type="button" id="getUl" value="Get div content in textbox" />
+	   <input type="button" id="pageReload" value="Relaod page" />
+  </body>
+  </html>
