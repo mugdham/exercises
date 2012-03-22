@@ -1,0 +1,33 @@
+1.How many games has India won?
+nrow(subset(odi,(odi$Winner==" India")))
+
+
+2.What is the highest score in an inning?
+
+ a<-max(odi[,6])
+ b<-max(odi[,7])
+ c<-max(a,b)
+ c
+
+
+3.
+How many games were played in 1980 ->  nrow(subset(odi,Matchyear==1980))
+How many games were played in 1980 -> nrow(subset(odi,Matchyear==2010))
+
+
+4) How many games were won by India in 1980?
+ nrow(subset(odi,(odi$Winner==" India" & odi$Matchyear==1980)))
+
+5)What is India's win % since 1980?
+total<-nrow(subset(odi,((odi$Team1==" India" | odi$Team2==" India")& (odi$Matchyear>=1980))))
+won<-nrow(subset(odi,(odi$Winner==" India" & odi$Matchyear>=1980)))
+(won/total)*100
+
+6) Bonus: Who has won most games?
+totalwon<-aggregate(odi[,4], list(Age=odi$Winner), FUN=length)
+totalwon[which(max(totalwon$x)==totalwon$x),]
+
+
+
+
+
