@@ -1,0 +1,157 @@
+  <html>
+  <head>
+      <title>Jquery</title>
+      <!-- Add JQuery here -->
+	 <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+	 <script src="jquery.validate.js" type="text/javascript"></script>
+	 <script src="jquery.metadata.js" type="text/javascript"></script>
+     <script type="text/javascript">     
+		$(document).ready(function(){
+			$("#commentForm").validate({
+				meta: "validate"				
+				,rules: {
+						cbgroup : {
+								required: true,
+								minlength: 2
+							}
+						}
+				,messages:{		
+							cbgroup : "Please select at least two topics you'd like to receive."
+						}
+				
+			});
+			
+					
+			$('#chkNewsLetter').change(function(){
+				if ($(this).is(":checked")){
+					$("#news").show();
+				}
+				else
+				{
+					$("#news").hide();
+				}
+			});
+				
+			
+			 
+		});
+  </script>
+      <style type="text/css">
+          .style1 {
+              width: 700px;
+          }
+
+          .style2 {
+              width: 200px;
+          }
+		  .pagecontainer {
+			width: 960px;
+			margin: auto;
+			}			
+		form label.error {
+						color: red;						
+		}
+		input.error {
+						border: 1px dotted red;
+					}
+		.cmxform{
+		filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr='#E6FFCC', EndColorStr='#F5FFEB');
+		background: -webkit-gradient(linear, left top, left bottom, from(#E6FFCC), to(#F5FFEB));
+		background: -moz-linear-gradient(top, #E6FFCC, #F5FFEB);
+	}
+      </style>
+  </head>
+  <body>
+
+  <h1>Example Form Document</h1>
+  <form class="cmxform" id="commentForm" method="get" action="">
+
+      <table class="style1">
+          <tbody class="pagecontainer">
+          <tr>
+              <td class="style2">
+                  First Name
+              </td>
+              <td>
+		      <input id="FirstName" type="text"  name="firstname" class="required" title="Please enter your firstname"/>
+		</td>
+          </tr>
+          <tr>
+              <td class="style2">
+                  Last Name
+              </td>
+              <td>
+			      <input id="LastName" type="text"  name="lastname" class="required" title="Please enter your lastname"/>
+              </td>
+          </tr>
+          <tr>
+              <td class="style2">
+                  Username
+              </td>
+              <td>
+				<input id="UserName" type="text"  name="username" class="required" title="Please enter a username"/>
+              </td>
+          </tr>
+		   <tr>
+              <td class="style2">
+                  Password
+              </td>
+              <td>                  
+				  <input id="Password" type="password"  name="passWord" class="required" maxlength="12"	  title="please provide a password"/>
+		     </td>
+          </tr>
+		   <tr>
+              <td class="style2">
+                  Confirm Password
+              </td>
+              <td>
+                  <input id="ConfPasssword" type="password" class="required" maxlength="12" title="please provide a password"/></td>
+          </tr>
+		  <tr>
+              <td class="style2">
+                  Email
+              </td>
+              <td>
+                  <input id="Email" type="text"  name="cemail" class="{validate:{required:true, email:true, messages:{required:'Please enter your email address', email:'Please enter a valid email address'}}}"/> 
+				  </td>
+          </tr>
+          
+          <tr>
+              <td class="style2">
+                  Please aggree to our policy
+              </td>
+              <td>
+                  <input type="checkbox"   id="chkPolicy"  name="chk" title="Please accept our policy" class="required" /></td>
+          </tr>
+		   <tr>
+              <td class="style2">
+                  I'd like to receive the newsletterPlease aggree to our policy</br>
+              </td>
+              <td>
+                  <input id="chkNewsLetter" type="checkbox"  /></td>
+          </tr>
+          <tr id="news" style="display:none;">
+              <td class="style2">
+                  Topics(Select at least two)-note:would be hidden when newsletter isn't selected,but is visible here for the demo
+              </td>
+              <td>
+					<fieldset id="cbList"> 
+                   <input id="Checkbox1" name="cbgroup" type="checkbox" /><label for="Checkbox1">Marketflash</label><br/>
+                   <input id="Checkbox2"  name="cbgroup" type="checkbox"/><label for="Checkbox1">Latest fuzz</label><br/>
+                   <input id="Checkbox3"   name="cbgroup" type="checkbox" /><label for="Checkbox1">Mailing list digester</label><br/>
+				   <label class="error" for="cbgroup" style="display:none;" generated="true">Please select atleast 2 topics</label>
+				   </fieldset>
+                  </td>
+          </tr>          
+          <tr>
+              <td class="style2">
+                  &nbsp;</td>
+              <td>
+                  <input id="Submit1" type="submit" value="submit"/>
+             </td>
+          </tr>
+          </tbody>
+      </table>	
+  </form>  
+  </body>
+  </html>

@@ -1,0 +1,30 @@
+<html>
+  <head>
+  <title>Document</title>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+  <script type="text/javascript"> 	
+
+	  $("document").ready(function() {
+			$('#getTweets').click(function(){
+				$.ajax({
+					type:'GET',
+					url:"http://twitter.com/status/user_timeline/jquery.json",
+					success:function(feed) {						
+						for(var i=0, l=feed.length; i < l && i < 15;   i++) 
+						{
+							//alert(feed[i].text);							
+							$("#myList").append("<li>" + feed[i].text + "</li>");							 
+						}
+					},
+					dataType:'jsonp'
+				});
+			});
+		}); 						
+		
+	  </script>
+  </head>
+  <body>
+	  <input type='button' id='getTweets' value='Get Tweets' />	
+	  <ul id="myList"></ul>
+  </body>
+  </html> 
