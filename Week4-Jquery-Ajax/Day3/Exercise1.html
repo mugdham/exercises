@@ -1,0 +1,38 @@
+<html>
+  <head>
+  <title>Document</title>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+  <script type="text/javascript"> 	
+	$(document).ready(function()
+	{	
+	
+		$("#myText").keyup(function(){
+			$("#myText").CheckLimit(30);
+		});
+	});
+	
+	$.fn.CheckLimit =  function(limit) 
+	{ 		
+		var text = $("#myText").val();
+		var length = text.length;
+		if(length > limit)
+		{
+		   $("#myText").val(text.substr(0,limit));		   
+		   alert("You can enter only 30 characters!!");
+		} 
+		else 
+		{ 
+			// update the user of the remaining characters
+			$("#lblCount").text(limit - length);				
+			return true;				
+		}				
+	};	
+  
+  </script>
+</head>
+<body>
+   <textarea id="myText" rows="3" cols="50"></textarea>  
+   <label id="lblCount">30 characters</label>
+   
+</body>
+</html>

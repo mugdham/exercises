@@ -1,0 +1,37 @@
+<html>
+  <head>
+  <title>Document</title>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+  <script type="text/javascript"> 	
+	$(document).ready(function()
+	{
+	$("#changeStyle").click(makeMeRed);
+	});
+
+	function makeMeRed() 
+	{
+		
+	   $("p").text($("p").text().toUpperCase());
+
+	};
+
+   </script>   
+   <style>
+    .myclass 
+	{
+		text-transform:capitalize;
+	}
+   </style>
+</head>
+<body>
+  <div>
+	<p>This is a paragraph.</p>
+	<p>This is second paragraph.</p>
+	<p>This is third paragraph.</p>
+	<p>This is fourth paragraph.</p>
+	<p>This is fifth paragraph.</p>
+	<input type="button" id="changeStyle" value="Click to casing for p tags"/>	
+   </div>
+   
+</body>
+</html>
